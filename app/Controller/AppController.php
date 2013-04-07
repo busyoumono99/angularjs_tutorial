@@ -13,11 +13,11 @@
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.Controller
- * @since         CakePHP(tm) v 0.2.9
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @copyright	Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link		http://cakephp.org CakePHP(tm) Project
+ * @package	  app.Controller
+ * @since	    CakePHP(tm) v 0.2.9
+ * @license	  MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
 App::uses('Controller', 'Controller');
@@ -28,8 +28,18 @@ App::uses('Controller', 'Controller');
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- * @package       app.Controller
+ * @package	  app.Controller
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	public $components = array('DebugKit.Toolbar');
+
+	public $helpers = array(
+		'Session',
+		'Html' => array('className' => 'TwitterBootstrap.BootstrapHtml'),
+		'Form' => array('className' => 'TwitterBootstrap.BootstrapForm'),
+		'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
+		'Tools.B99TwitterBootstrap',
+	);
+
 }
