@@ -1,8 +1,6 @@
 <?php
 //	ヘッダータイトル用の変数
-$brand = array( 'title' => 'AngularJS tutorial', 'url' => '/',/*'img'=>'sun_light.png'*/);
-// debug($this);die;
-// $cookieUserName =
+$brand = array( 'title' => Configure::read('Site.title'), 'url' => '/',/*'img'=>'sun_light.png'*/);
 
 //	グローバルナビゲーション用のリンク先配列
 $links = array(

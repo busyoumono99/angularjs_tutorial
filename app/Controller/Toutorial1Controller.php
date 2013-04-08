@@ -9,14 +9,14 @@ App::uses('AppController', 'Controller');
  * @package	  app.Controller
  * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
  */
-class SitesController extends AppController {
+class Toutorial1Controller extends AppController {
 
 /**
  * Controller name
  *
  * @var string
  */
-	public $name = 'Sites';
+	public $name = 'Toutorial1';
 
 /**
  * This controller does not use a model
@@ -41,8 +41,6 @@ class SitesController extends AppController {
  * @return void
  */
 	public function index() {}
-
-	public function about() {}
 
 	public function beforeFilter() {
 		parent :: beforeFilter();

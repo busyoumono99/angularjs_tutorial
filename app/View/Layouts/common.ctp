@@ -1,6 +1,4 @@
 <?php
-//	B99TwitterBootstrap用の変数を宣言する。
-
 $siteTitle = Configure::read('Site.title');
 ?>
 <!DOCTYPE html>
