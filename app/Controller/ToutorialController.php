@@ -9,14 +9,14 @@ App::uses('AppController', 'Controller');
  * @package	  app.Controller
  * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
  */
-class Toutorial1Controller extends AppController {
+class ToutorialController extends AppController {
 
 /**
  * Controller name
  *
  * @var string
  */
-	public $name = 'Toutorial1';
+	public $name = 'Toutorial';
 
 /**
  * This controller does not use a model
@@ -41,6 +41,19 @@ class Toutorial1Controller extends AppController {
  * @return void
  */
 	public function index() {}
+	public function step00() {}
+	public function step01() {}
+	public function step02() {}
+	public function step03() {}
+	public function step04() {}
+	public function step05() {}
+	public function step06() {}
+	public function step07() {}
+	public function step08() {}
+	public function step09() {}
+	public function step10() {}
+	public function step11() {}
+	public function step12() {}
 
 	public function beforeFilter() {
 		parent :: beforeFilter();
