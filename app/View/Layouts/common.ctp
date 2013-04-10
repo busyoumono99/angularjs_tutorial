@@ -16,11 +16,7 @@ $siteTitle = Configure::read('Site.title');
 		echo $this->fetch('meta') . "\n";
 		echo $this->fetch('css') . "\n";
 		echo $this->fetch('script') . "\n";
-		if ($_SERVER['SERVER_NAME'] == 'dream-travel.boo.jp'){
-			echo $this->Html->script('google_analytics') . "\n";
-		}
 	?>
-	<link rel="apple-touch-icon" href="/pazudora_ken/img/web/sun_light.png" />
 </head>
 <body <?php echo $this->fetch('body_attr'); ?>>
 	<?php echo $this->element('common_globalnav');?>
