@@ -12,7 +12,7 @@ $siteTitle = Configure::read('Site.title');
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	 <?php
 		echo $this->Html->meta('icon') . "\n";
-		echo $this->Html->css(array('bootstrap.min','bootstrap-responsive','cake_bootstrap')) . "\n";
+		echo $this->Html->css(array('bootstrap.min','bootstrap-responsive')) . "\n";
 		echo $this->fetch('meta') . "\n";
 		echo $this->fetch('css') . "\n";
 		echo $this->fetch('script') . "\n";

@@ -43,3 +43,8 @@
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
+
+/**
+ * .jsonの拡張子で表示する為に必要？
+ */
+Router::parseExtensions('json');

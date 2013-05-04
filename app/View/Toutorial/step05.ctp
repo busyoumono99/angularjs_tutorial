@@ -1,5 +1,5 @@
 <?php
-$this->set('title_for_layout',Configure::read('Toutorial04.title'));
+$this->set('title_for_layout',Configure::read('Toutorial05.title'));
 
 // bodyの属性にng-appを設定する。
 $this->start('body_attr');
@@ -24,7 +24,7 @@ $this->end();
 $this->start('script');
 // スクリプトを読み込む。
 echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js') . "\n";
-echo $this->Html->script('step4/controllers.js') . "\n";
+echo $this->Html->script('step5/controllers.js') . "\n";
 $this->end();
 ?>
 <div>
@@ -38,7 +38,6 @@ $this->end();
 		</ul>
 
 		<h4>以下実験</h4>
-		<p>  <div id="status-filter">現在のフィルター: {{query}}</div></p>
-		<p>  <div id="status-order">現在のソート順: {{orderProp}}</div></p>
+		<p>  <div id="status-filter">JSON形式で表示: {{phones | json}}</div></p>
 	</div>
 </div>
