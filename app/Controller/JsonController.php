@@ -47,19 +47,35 @@ class JsonController extends AppController {
 	public function index() {}
 
 	public function api_get($type = null){
-	// リクエストをデバッグログに書き出し
-	$this->ApiTool->logingRequest($this->request);
-	// 引数チェック。空か、指定タイプ以外だったら404エラー
-	$this->ApiTool->checkType($type,array('phones'));
-	// タイプごとにphonesを作り分ける。
-	if ($type == 'phones'){
-	 $phones = $this->__getPhones();
-	 $this->set('phones',$phones);
+		// リクエストをデバッグログに書き出し
+		$this->ApiTool->logingRequest($this->request);
+		// 引数チェック。空か、指定タイプ以外だったら404エラー
+		$this->ApiTool->checkType($type,array('phones'));
+		// タイプごとにphonesを作り分ける。
+		if ($type == 'phones'){
+		 $phones = $this->__getPhones();
+		 // debug($phones);die;
+		 $this->set('phones',$phones);
+		}
+		// ビュークラスをJSONにする
+		$this->viewClass = 'Json';
+		$this->set('_serialize', array('phones'));
 	}
-	// ビュークラスをJSONにする
-	$this->viewClass = 'Json';
-	$this->set('_serialize', array('phones'));
- }
+
+	public function api_get2($type = null){
+		// リクエストをデバッグログに書き出し
+		$this->ApiTool->logingRequest($this->request);
+		// 引数チェック。空か、指定タイプ以外だったら404エラー
+		$this->ApiTool->checkType($type,array('phones'));
+		// タイプごとにphonesを作り分ける。
+		if ($type == 'phones'){
+		 $phones = $this->__getPhones();
+		 // debug($phones);die;
+		 $this->set('phones',$phones);
+		}
+		// JSON用としてレスポンスを返す
+		return new CakeResponse(array('body' => json_encode($phones)));
+	}
 
 	public function beforeFilter() {
 		parent :: beforeFilter();
@@ -72,14 +88,14 @@ class JsonController extends AppController {
 					"age"=> 0, 
 					"id"=> "motorola-xoom-with-wi-fi", 
 					"imageUrl"=> "img/phones/motorola-xoom-with-wi-fi.0.jpg", 
-					"name"=> "Motorola XOOM\u2122 with Wi-Fi", 
+					"name"=> "Motorola XOOM™ with Wi-Fi", 
 					"snippet"=> "The Next, Next Generation\r\n\r\nExperience the future with Motorola XOOM with Wi-Fi, the world's first tablet powered by Android 3.0 (Honeycomb)."
 				), 
 				array(
 					"age"=> 1, 
 					"id"=> "motorola-xoom", 
 					"imageUrl"=> "img/phones/motorola-xoom.0.jpg", 
-					"name"=> "MOTOROLA XOOM\u2122", 
+					"name"=> "MOTOROLA XOOM™", 
 					"snippet"=> "The Next, Next Generation\n\nExperience the future with MOTOROLA XOOM, the world's first tablet powered by Android 3.0 (Honeycomb)."
 				), 
 				array(
@@ -87,7 +103,7 @@ class JsonController extends AppController {
 					"carrier"=> "AT&amp;T", 
 					"id"=> "motorola-atrix-4g", 
 					"imageUrl"=> "img/phones/motorola-atrix-4g.0.jpg", 
-					"name"=> "MOTOROLA ATRIX\u2122 4G", 
+					"name"=> "MOTOROLA ATRIX™ 4G", 
 					"snippet"=> "MOTOROLA ATRIX 4G the world's most powerful smartphone."
 				), 
 				array(
@@ -95,15 +111,15 @@ class JsonController extends AppController {
 					"id"=> "dell-streak-7", 
 					"imageUrl"=> "img/phones/dell-streak-7.0.jpg", 
 					"name"=> "Dell Streak 7", 
-					"snippet"=> "Introducing Dell\u2122 Streak 7. Share photos, videos and movies together. It\u2019s small enough to carry around, big enough to gather around."
+					"snippet"=> "Introducing Dell™ Streak 7. Share photos, videos and movies together. It's small enough to carry around, big enough to gather around."
 				), 
 				array(
 					"age"=> 4, 
 					"carrier"=> "Cellular South", 
 					"id"=> "samsung-gem", 
 					"imageUrl"=> "img/phones/samsung-gem.0.jpg", 
-					"name"=> "Samsung Gem\u2122", 
-					"snippet"=> "The Samsung Gem\u2122 brings you everything that you would expect and more from a touch display smart phone \u2013 more apps, more features and a more affordable price."
+					"name"=> "Samsung Gem™", 
+					"snippet"=> "The Samsung Gem™ brings you everything that you would expect and more from a touch display smart phone - more apps, more features and a more affordable price."
 				), 
 				array(
 					"age"=> 5, 
@@ -133,23 +149,23 @@ class JsonController extends AppController {
 					"age"=> 8, 
 					"id"=> "samsung-galaxy-tab", 
 					"imageUrl"=> "img/phones/samsung-galaxy-tab.0.jpg", 
-					"name"=> "Samsung Galaxy Tab\u2122", 
-					"snippet"=> "Feel Free to Tab\u2122. The Samsung Galaxy Tab\u2122 brings you an ultra-mobile entertainment experience through its 7\u201d display, high-power processor and Adobe\u00ae Flash\u00ae Player compatibility."
+					"name"=> "Samsung Galaxy Tab™", 
+					"snippet"=> "Feel Free to Tab™. The Samsung Galaxy Tab™ brings you an ultra-mobile entertainment experience through its 7” display, high-power processor and Adobe® Flash® Player compatibility."
 				), 
 				array(
 					"age"=> 9, 
 					"carrier"=> "Cellular South", 
 					"id"=> "samsung-showcase-a-galaxy-s-phone", 
 					"imageUrl"=> "img/phones/samsung-showcase-a-galaxy-s-phone.0.jpg", 
-					"name"=> "Samsung Showcase\u2122 a Galaxy S\u2122 phone", 
-					"snippet"=> "The Samsung Showcase\u2122 delivers a cinema quality experience like you\u2019ve never seen before. Its innovative 4\u201d touch display technology provides rich picture brilliance, even outdoors"
+					"name"=> "Samsung Showcase™ a Galaxy S™ phone", 
+					"snippet"=> "The Samsung Showcase™ delivers a cinema quality experience like you've never seen before. Its innovative 4” touch display technology provides rich picture brilliance, even outdoors"
 				), 
 				array(
 					"age"=> 10, 
 					"carrier"=> "Verizon", 
 					"id"=> "droid-2-global-by-motorola", 
 					"imageUrl"=> "img/phones/droid-2-global-by-motorola.0.jpg", 
-					"name"=> "DROID\u2122 2 Global by Motorola", 
+					"name"=> "DROID™ 2 Global by Motorola", 
 					"snippet"=> "The first smartphone with a 1.2 GHz processor and global capabilities."
 				), 
 				array(
@@ -157,7 +173,7 @@ class JsonController extends AppController {
 					"carrier"=> "Verizon", 
 					"id"=> "droid-pro-by-motorola", 
 					"imageUrl"=> "img/phones/droid-pro-by-motorola.0.jpg", 
-					"name"=> "DROID\u2122 Pro by Motorola", 
+					"name"=> "DROID™ Pro by Motorola", 
 					"snippet"=> "The next generation of DOES."
 				), 
 				array(
@@ -165,7 +181,7 @@ class JsonController extends AppController {
 					"carrier"=> "AT&amp;T", 
 					"id"=> "motorola-bravo-with-motoblur", 
 					"imageUrl"=> "img/phones/motorola-bravo-with-motoblur.0.jpg", 
-					"name"=> "MOTOROLA BRAVO\u2122 with MOTOBLUR\u2122", 
+					"name"=> "MOTOROLA BRAVO™ with MOTOBLUR™", 
 					"snippet"=> "An experience to cheer about."
 				), 
 				array(
@@ -173,7 +189,7 @@ class JsonController extends AppController {
 					"carrier"=> "T-Mobile", 
 					"id"=> "motorola-defy-with-motoblur", 
 					"imageUrl"=> "img/phones/motorola-defy-with-motoblur.0.jpg", 
-					"name"=> "Motorola DEFY\u2122 with MOTOBLUR\u2122", 
+					"name"=> "Motorola DEFY™ with MOTOBLUR™", 
 					"snippet"=> "Are you ready for everything life throws your way?"
 				), 
 				array(
@@ -189,8 +205,8 @@ class JsonController extends AppController {
 					"carrier"=> "US Cellular", 
 					"id"=> "samsung-mesmerize-a-galaxy-s-phone", 
 					"imageUrl"=> "img/phones/samsung-mesmerize-a-galaxy-s-phone.0.jpg", 
-					"name"=> "Samsung Mesmerize\u2122 a Galaxy S\u2122 phone", 
-					"snippet"=> "The Samsung Mesmerize\u2122 delivers a cinema quality experience like you\u2019ve never seen before. Its innovative 4\u201d touch display technology provides rich picture brilliance,even outdoors"
+					"name"=> "Samsung Mesmerize™ a Galaxy S™ phone", 
+					"snippet"=> "The Samsung Mesmerize™ delivers a cinema quality experience like you've never seen before. Its innovative 4” touch display technology provides rich picture brilliance,even outdoors"
 				), 
 				array(
 					"age"=> 16, 
@@ -204,8 +220,8 @@ class JsonController extends AppController {
 					"age"=> 17, 
 					"id"=> "samsung-transform", 
 					"imageUrl"=> "img/phones/samsung-transform.0.jpg", 
-					"name"=> "Samsung Transform\u2122", 
-					"snippet"=> "The Samsung Transform\u2122 brings you a fun way to customize your Android powered touch screen phone to just the way you like it through your favorite themed \u201cSprint ID Service Pack\u201d."
+					"name"=> "Samsung Transform™", 
+					"snippet"=> "The Samsung Transform™ brings you a fun way to customize your Android powered touch screen phone to just the way you like it through your favorite themed “Sprint ID Service Pack”."
 				), 
 				array(
 					"age"=> 18, 
@@ -218,7 +234,7 @@ class JsonController extends AppController {
 					"age"=> 19, 
 					"id"=> "motorola-charm-with-motoblur", 
 					"imageUrl"=> "img/phones/motorola-charm-with-motoblur.0.jpg", 
-					"name"=> "Motorola CHARM\u2122 with MOTOBLUR\u2122", 
+					"name"=> "Motorola CHARM™ with MOTOBLUR™", 
 					"snippet"=> "Motorola CHARM fits easily in your pocket or palm.  Includes MOTOBLUR service."
 				)
 		);
