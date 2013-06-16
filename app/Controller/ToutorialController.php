@@ -48,7 +48,9 @@ class ToutorialController extends AppController {
 	public function step04() {}
 	public function step05() {}
 	public function step06() {}
-	public function step07() {}
+	public function step07() {
+		$this->layout="row_one";
+	}
 	public function step08() {}
 	public function step09() {}
 	public function step10() {}

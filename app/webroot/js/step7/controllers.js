@@ -12,3 +12,7 @@ function PhoneListCtrl($scope,$http) {
 
 	// $scope.orderProp = 'age';
 }
+
+function PhoneDetailCtrl($scope, $routeParams) {
+  $scope.phoneId = $routeParams.phoneId;
+}
